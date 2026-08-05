@@ -42,6 +42,47 @@ Prediction confidence is scaled for interpretability:
 2. The trained XGBoost model predicts contamination status with a confidence score
 3. If plastic waste is detected, an automated email alert is sent to the relevant authority
 
+## Setup & Running Locally
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Jobsy-dev/Plastisense.git
+   cd Plastisense
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Set up environment variables**
+   Create a `.env` file in the project root with your own email credentials for alerts:
+   ```
+   SENDER_EMAIL=your-email@gmail.com
+   SENDER_PASSWORD=your-app-password
+   RECEIVER_EMAIL=recipient-email@gmail.com
+   ```
+   
+
+4. **Run the app**
+   ```bash
+   python app.py
+   ```
+
+5. Open your browser at `http://localhost:5000` (or the port shown in the terminal)
+
+## Project Structure
+
+```
+Plastisense/
+├── app.py                  # Flask backend + prediction logic
+├── xgb_best_model.pkl      # Trained XGBoost model
+├── scaler.pkl              # Fitted StandardScaler
+├── templates/               # HTML templates
+├── static/                  # CSS, JS, images
+└── requirements.txt
+```
+
 ## References
 
 - [XGBoost Documentation](https://xgboost.readthedocs.io/en/latest/)
